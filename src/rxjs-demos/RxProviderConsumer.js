@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-export const SharedRxJSContext = React.createContext();
+const SharedRxJSContext = React.createContext();
 
 export class RxJSProvider extends Component {
 
@@ -40,3 +40,10 @@ export class RxJSProvider extends Component {
   }
 }
 
+export class RxJSConsumer extends React.Component {
+  render() {
+    return <SharedRxJSContext.Consumer>
+    { this.props.children }
+    </SharedRxJSContext.Consumer>;
+  }
+}
