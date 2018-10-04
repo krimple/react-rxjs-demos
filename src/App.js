@@ -1,26 +1,21 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
 import './App.css';
+import { RxJSProvider } from './rxjs-demos/producer-consumer-example';
+import RxEnabledComponent from './rxjs-demos/RxEnabledComponent';
+import { interval, from } from 'rxjs';
+import { flatMap } from 'rxjs/operators';
+
+//const fetch$ = from(fetch('/farm-items.json', { headers: { 'Accept': 'application/json'}}))
+//                    .pipe(flatMap(response => response.json()));
+
+const fetch$ = interval(1000);
 
 class App extends Component {
   render() {
     return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
-      </div>
+      <RxJSProvider subject={fetch$}>
+         <RxEnabledComponent />
+      </RxJSProvider>
     );
   }
 }

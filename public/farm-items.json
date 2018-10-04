@@ -1,0 +1,14 @@
+[{
+  "chickens": [
+    {
+      "id": 1,
+      "type": "fluffy",
+      "quantity": 23
+    },
+    {
+      "id": 2,
+      "type": "silky",
+      "quantity": 3
+    }
+  ]
+}]
